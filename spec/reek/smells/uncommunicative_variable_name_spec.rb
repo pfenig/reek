@@ -152,7 +152,6 @@ EOS
                               { name: 'y' },
                               { name: 'z' })
     end
-
   end
 
   context 'when a smell is reported' do
