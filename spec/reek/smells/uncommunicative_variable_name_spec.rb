@@ -28,7 +28,8 @@ describe UncommunicativeVariableName do
 
   context 'local variable name' do
     it 'does not report one-word variable name' do
-      expect('def help(fred) simple = jim(45) end').not_to smell_of(UncommunicativeVariableName)
+      expect('def help(fred) simple = jim(45) end').
+        not_to smell_of(UncommunicativeVariableName)
     end
 
     it 'does not report single underscore as a variable name' do

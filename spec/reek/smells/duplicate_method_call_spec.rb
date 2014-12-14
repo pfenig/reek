@@ -160,8 +160,13 @@ EOS
       expect(src).not_to smell_of(DuplicateMethodCall).with_config(@config)
     end
     it 'reports quadruple calls' do
-      src = 'def double_thing() @other.thing + @other.thing + @other.thing + @other.thing end'
-      expect(src).to smell_of(DuplicateMethodCall, name: '@other.thing', count: 4).with_config(@config)
+      src = '
+        def double_thing()
+          @other.thing + @other.thing + @other.thing + @other.thing
+        end
+      '
+      expect(src).to smell_of(DuplicateMethodCall, name: '@other.thing', count: 4).
+        with_config(@config)
     end
   end
 
@@ -175,11 +180,13 @@ EOS
     end
     it 'reports calls to other methods' do
       src = 'def double_other_thing() @other.thing + @other.thing end'
-      expect(src).to smell_of(DuplicateMethodCall, name: '@other.thing').with_config(@config)
+      expect(src).to smell_of(DuplicateMethodCall, name: '@other.thing').
+        with_config(@config)
     end
     it 'does not report calls to methods specifed with a regular expression' do
       src = 'def double_puts() puts @other.thing; puts @other.thing end'
-      expect(src).to smell_of(DuplicateMethodCall, name: '@other.thing').with_config(@config)
+      expect(src).to smell_of(DuplicateMethodCall, name: '@other.thing').
+        with_config(@config)
     end
   end
 end
