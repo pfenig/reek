@@ -19,7 +19,7 @@ describe UnusedParameters do
       src = 'def simple(num,sum,denum); sum end'
       expect(src).to smell_of(UnusedParameters,
                               { name: 'num' },
-                              { name: 'denum'})
+                              { name: 'denum' })
     end
 
     it 'reports for 3 used and 1 unused parameter' do
