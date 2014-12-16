@@ -52,7 +52,7 @@ EOS
     it 'should report nested calls' do
       src = 'def double_thing() @other.thing.foo + @other.thing.foo end'
       expect(src).to smell_of(DuplicateMethodCall, { name: '@other.thing' },
-                              name: '@other.thing.foo')
+                              { name: '@other.thing.foo' })
     end
     it 'should ignore calls to new' do
       src = 'def double_thing() @other.new + @other.new end'

@@ -47,6 +47,10 @@ Style/SingleLineMethods:
 Style/SignalException:
   EnforcedStyle: only_raise
 
+# Allow multiple Hash parameters to look similar
+Style/BracesAroundHashParameters:
+  EnforcedStyle: context_dependent
+
 # Place . on the previous line
 Style/DotPosition:
   EnforcedStyle: trailing
